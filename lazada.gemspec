@@ -7,11 +7,11 @@ Gem::Specification.new do |spec|
   spec.name          = "lazada"
   spec.version       = Lazada::VERSION
   spec.authors       = ["Rothana Choun"]
-  spec.email         = ["rothana.choun7@gmail.com"]
+  spec.email         = ["rothana@yoolk.com"]
 
   spec.summary       = %q{A ruby wrapper for the Lazada API.}
   spec.description   = %q{A ruby wrapper for the Lazada API.}
-  spec.homepage      = "https://github.com/rothanachoun/lazada"
+  spec.homepage      = "https://github.com/yoolk/lazada"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org by setting 'allowed_push_host', or
