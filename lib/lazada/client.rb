@@ -6,6 +6,7 @@ require 'lazada/api/category'
 require 'lazada/api/feed'
 require 'lazada/api/image'
 require 'lazada/api/order'
+require 'lazada/api/response'
 
 module Lazada
   class Client
@@ -16,7 +17,7 @@ module Lazada
     include Lazada::API::Image
     include Lazada::API::Order
 
-    base_uri 'sellercenter-api.lazada.com.my'
+    base_uri 'https://api.sellercenter.lazada.com.my'
 
     def initialize(api_key, user_id)
       @api_key = api_key
