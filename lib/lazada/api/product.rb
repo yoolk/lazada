@@ -73,13 +73,20 @@ module Lazada
         params['Skus']['Sku']['flavor'] = object[:flavor] if object[:flavor].present?
         params['Skus']['Sku']['bedding_size_2'] = object[:bedding_size] if object[:bedding_size].present?
 
-        if object[:images].present?
-          params['Skus']['Sku']['Images'] = {}
-          params['Skus']['Sku']['Images'].compare_by_identity
+        params['Skus']['Sku']['Images'] = {}
+        params['Skus']['Sku']['Images'].compare_by_identity
 
+        if object[:images].present?
           object[:images].each do |image|
-            params['Skus']['Sku']['Images']['Image'.dup] = image
+            url = migrate_image(image)
+
+            params['Skus']['Sku']['Images']['Image'.dup] = url
           end
+        end
+
+        # maximum image: 8
+        (8 - object[:images].size).times.each do |a|
+          params['Skus']['Sku']['Images']['Image'.dup] = ''
         end
 
         params

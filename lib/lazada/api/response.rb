@@ -33,6 +33,8 @@ module Lazada
       end
 
       def error_messages
+        return if response['ErrorResponse']['Body'].nil?
+
         hash = {}
         response['ErrorResponse']['Body']['Errors'].each do |error|
           hash[error['Field'].dup] = error['Message']
