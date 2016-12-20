@@ -10,7 +10,7 @@ module Lazada
         url = request_url('GetOrders', params) if params.present?
         response = self.class.get(url)
 
-        return response['SuccessResponse']['Body']['Orders']['Order'] if response['SuccessResponse'].present?
+        return response['SuccessResponse']['Body']['Orders'] if response['SuccessResponse'].present?
         response
       end
 
@@ -18,7 +18,7 @@ module Lazada
         url = request_url('GetOrder', { 'OrderId' => id })
         response = self.class.get(url)
 
-        return response['SuccessResponse']['Body']['Orders']['Order'] if response['SuccessResponse'].present?
+        return response['SuccessResponse']['Body']['Orders'] if response['SuccessResponse'].present?
         response
       end
 
@@ -26,7 +26,7 @@ module Lazada
         url = request_url('GetOrderItems', { 'OrderId' => id })
         response = self.class.get(url)
 
-        return response['SuccessResponse']['Body']['OrderItems']['OrderItem'] if response['SuccessResponse'].present?
+        return response['SuccessResponse']['Body']['OrderItems'] if response['SuccessResponse'].present?
         response
       end
     end
