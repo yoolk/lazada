@@ -37,6 +37,14 @@ module Lazada
         Lazada::API::Response.new(response)
       end
 
+      def get_qc_status
+        url = request_url('GetQcStatus')
+
+        response = self.class.get(url)
+
+        response['SuccessResponse']['Body']['Status'] if response['SuccessResponse'].present?
+      end
+
       private
 
       def product_params(object)
