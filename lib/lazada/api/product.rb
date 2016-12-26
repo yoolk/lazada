@@ -31,7 +31,16 @@ module Lazada
       def remove_product(seller_sku)
         url = request_url('RemoveProduct')
 
-        params = { 'Product' => { 'SellerSku' => seller_sku } }
+        params = {
+          'Product' => {
+            'Skus' => {
+              'Sku' => {
+                'SellerSku' => seller_sku
+              }
+            }
+          }
+        }
+
         response = self.class.post(url, body: params.to_xml(root: 'Request', skip_types: true))
 
         Lazada::API::Response.new(response)
